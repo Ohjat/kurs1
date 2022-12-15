@@ -1,0 +1,66 @@
+package com.example.demo.models.models2;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
+public class type_of_race {
+
+    public type_of_race(String name, Integer nuber_of_riders)
+    {
+        this.name=name;
+        this.nuber_of_riders=nuber_of_riders;
+    }
+    public  type_of_race()
+    {
+
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
+
+    @NotBlank
+    @Size(min = 1, max = 70)
+    public String name;
+
+    public Integer nuber_of_riders;
+
+
+     @OneToOne(mappedBy = "track")
+    public games games;
+
+
+    public com.example.demo.models.models2.games getGames() {
+        return games;
+    }
+
+    public void setGames(com.example.demo.models.models2.games games) {
+        this.games = games;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getNuber_of_riders() {
+        return nuber_of_riders;
+    }
+
+    public void setNuber_of_riders(Integer nuber_of_riders) {
+        this.nuber_of_riders = nuber_of_riders;
+    }
+}
