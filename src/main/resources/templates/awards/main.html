@@ -15,8 +15,8 @@
 <div th:each="awards : ${awards}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="'Название награды: '+ ${awards.name}"/>
-            <p class="text-gray-700 text-base" th:text="'дата создания: '+${awards.date}"/>
+            <div class="font-bold text-xl mb-2" th:text="'Название: '+ ${awards.name}"/>
+
         </div>
         <div class="px-6 pt-4 pb-2">
             <a class="underline text-blue-600"  th:href="'/awards/edit/'+${awards.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>

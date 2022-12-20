@@ -20,7 +20,7 @@ public class employee {
     public Long id;
 
     @NotNull
-    public Integer salary;
+    public int salary;
 
 
     @NotNull

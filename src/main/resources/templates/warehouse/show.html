@@ -11,8 +11,9 @@
 
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2" th:text="${warehouse.name}"/>
-
+        <div class="font-bold text-xl mb-2" th:text="'Название склада: '+${warehouse.name}"/>
+        <div class="font-bold text-xl mb-2" th:text="'Количество ячеек на складе '+${warehouse.numbers_of_cells}"/>
+        <div class="font-bold text-xl mb-2" th:text="'Деталь на складе '+${warehouse.details.name}"/>
 
     </div>
 </div>

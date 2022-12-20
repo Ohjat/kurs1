@@ -11,10 +11,9 @@
 
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2" th:text="${details.name}"/>
-        <p class="text-gray-700 text-base" th:text="${details.quantity}"/>
-        <p class="text-gray-700 text-base" th:text="${details.cars}"/>
-
+        <div class="font-bold text-xl mb-2" th:text="'Название деталей '+${details.name}"/>
+        <p class="text-gray-700 text-base" th:text="'Количество деталей '+${details.quantity}"/>
+        <p class="text-gray-700 text-base" th:text="'Марка автомобиля '+${details.cars.name}"/>
     </div>
 </div>
 </body>

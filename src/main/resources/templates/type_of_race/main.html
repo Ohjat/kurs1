@@ -12,12 +12,12 @@
 <h1>Все типы гонки</h1>
 <a class="underline text-blue-600" href="/type_of_race/filter">Поиск типа</a>
 <a class="underline text-blue-600" href="/type_of_race/add" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Добавить тип гонки  </a>
+<a class="underline text-blue-600" href="/type_of_race/export">Скачать отчёт</a>
 <div th:each="type_of_race : ${type_of_race}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="${type_of_race.name}"/>
-            <p class="text-gray-700 text-base" th:text="${type_of_race.nuber_of_riders}"/>
-        </div>
+            <div class="font-bold text-xl mb-2" th:text="'Тип гонки: '+${type_of_race.name}"/>
+             </div>
         <div class="px-6 pt-4 pb-2">
             <a class="underline text-blue-600"  th:href="'/type_of_race/edit/'+${type_of_race.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>
             <a class="underline text-blue-600"  th:href="'/type_of_race/show/'+${type_of_race.id}">Посмореть</a>

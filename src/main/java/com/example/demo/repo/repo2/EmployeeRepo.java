@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface EmployeeRepo extends CrudRepository<employee, Long > {
 
-      List<employee> findBySalaryContains(String name);
+    List<employee> findByUserUsernameContains(String username);
 
-    List<employee> findBySalary(String name);
+    List<employee> findByUserUsername(String username);
 
 }

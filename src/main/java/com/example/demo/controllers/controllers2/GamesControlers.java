@@ -109,7 +109,7 @@ public class GamesControlers {
                                @RequestParam(required = false) boolean accurate_search,
                                Model model) {
         if (!name.equals("")) {
-            List<games> result = accurate_search ? gamesRepo.findByNumber(name) : gamesRepo.findByNumberContains(name);
+            List<games> result = accurate_search ? gamesRepo.findByTrackName(name) : gamesRepo.findByTrackNameContains(name);
             model.addAttribute("result", result);
         }
 

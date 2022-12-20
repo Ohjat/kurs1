@@ -15,7 +15,7 @@
 <div th:each="games : ${games}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="${games.number}"/>
+            <div class="font-bold text-xl mb-2" th:text="'Номер гонки: '+ ${games.number}"/>
         </div>
         <div class="px-6 pt-4 pb-2">
             <a class="underline text-blue-600"  th:href="'/games/edit/'+${games.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>

@@ -1,11 +1,15 @@
 package com.example.demo.models.models2;
 
+import com.example.demo.interfaces.IExelExport;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
-public class type_of_race {
+public class type_of_race implements IExelExport {
 
     public type_of_race(String name, Integer nuber_of_riders)
     {
@@ -62,5 +66,15 @@ public class type_of_race {
 
     public void setNuber_of_riders(Integer nuber_of_riders) {
         this.nuber_of_riders = nuber_of_riders;
+    }
+
+    @Override
+    public List<Object> getHeaders() {
+        return Arrays.asList("Название трека", "Колличество гонщиков на треке");
+    }
+
+    @Override
+    public List<Object> getData() {
+        return Arrays.asList(name, nuber_of_riders);
     }
 }

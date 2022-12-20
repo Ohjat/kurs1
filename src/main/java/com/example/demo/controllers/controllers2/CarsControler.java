@@ -42,7 +42,14 @@ public class CarsControler {
 
          return "cars/add";
     }
-
+@PostMapping("/delete")
+    public String cartDelete(@RequestParam long id , Model model) {
+        Cars cars = carsRepo.findById(id).get();
+        carsRepo.delete(cars);
+         Iterable<Cars> car = carsRepo.findAll();
+        model.addAttribute("cars", car);
+        return "cars/main";
+    }
     @PostMapping("/add")
     @PreAuthorize("isAuthenticated()")
     public String carsPostAdd(
@@ -91,7 +98,7 @@ public class CarsControler {
     @GetMapping("/del/{cars}")
     @PreAuthorize("isAuthenticated()")
     public String carsDel(
-            Cars cars) {
+            @Valid Cars cars) {
         carsRepo.delete(cars);
         return "redirect:../";
     }

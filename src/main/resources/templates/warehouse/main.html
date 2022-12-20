@@ -10,12 +10,12 @@
 <div th:insert="header">...</div>
 
 <h1>Все склады</h1>
-<a class="underline text-blue-600" href="/warehouse/filter">Поиск гонки</a>
+<a class="underline text-blue-600" href="/warehouse/filter">Поиск склада</a>
 <a class="underline text-blue-600" href="/warehouse/add" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Добавить склад</a>
 <div th:each="warehouse : ${warehouse}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="${warehouse.name}"/>
+            <div class="font-bold text-xl mb-2" th:text="'Название склада: '+${warehouse.name}"/>
         </div>
         <div class="px-6 pt-4 pb-2">
             <a class="underline text-blue-600"  th:href="'/warehouse/edit/'+${warehouse.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>

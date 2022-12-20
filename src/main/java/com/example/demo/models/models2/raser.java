@@ -1,9 +1,11 @@
 package com.example.demo.models.models2;
 
 import com.example.demo.models.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
@@ -29,21 +31,21 @@ public class raser {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
 
-    @NotBlank
-    @Size(min = 1, max = 70)
+    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date data_registr;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name="cars_id")
     public Cars id_cars;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name="games_id")
     public games id_games;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name="awards_id")
     public awards id_awards;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name="user_id")
     public User user;
 
@@ -52,7 +54,6 @@ public class raser {
             joinColumns=@JoinColumn (name="employee_id"),
             inverseJoinColumns=@JoinColumn(name="rasers_id"))
     private Set<employee> employee;
-
 
     public Long getId() {
         return id;

@@ -79,7 +79,7 @@ public class RasersControlers {
            Iterable<Cars> cars = carsRepo.findAll();
         model.addAttribute("cars", cars);
          Iterable<games> games = gamesRepo.findAll();
-        model.addAttribute("games", games);
+        model.addAttribute("games", raser.id_games);
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
         Iterable<awards> awards = awardsRepo.findAll();

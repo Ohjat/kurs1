@@ -15,8 +15,8 @@
 <div th:each="track : ${track}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="${track.name}"/>
-            <p class="text-gray-700 text-base" th:text="${track.nuber_of_riders}"/>
+            <div class="font-bold text-xl mb-2" th:text="'Название : '+${track.name}"/>
+
         </div>
         <div class="px-6 pt-4 pb-2">
             <a class="underline text-blue-600"  th:href="'/track/edit/'+${track.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>

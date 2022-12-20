@@ -110,8 +110,8 @@ public class EmployeeControlers {
     public String awardFilter(@RequestParam(defaultValue = "") String name,
                                @RequestParam(required = false) boolean accurate_search,
                                Model model) {
-        if (!name.equals("")) {
-            List<employee> result = accurate_search ? employeeRepo.findBySalary(name) : employeeRepo.findBySalaryContains(name);
+        if (String.valueOf(name) != null) {
+            List<employee> result = accurate_search ? employeeRepo.findByUserUsername(name) :  employeeRepo.findByUserUsernameContains(name);
             model.addAttribute("result", result);
         }
 
@@ -119,6 +119,5 @@ public class EmployeeControlers {
         model.addAttribute("accurate_search", accurate_search);
         return "employee/filter";
     }
-
 
 }

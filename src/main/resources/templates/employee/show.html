@@ -12,8 +12,9 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2" th:text="'зарплата: '+ ${employee.salary}"/>
-
-
+         <div class="font-bold text-xl mb-2" th:text="'дата регистрация: '+ ${employee.date_emploeed}"/>
+         <div class="font-bold text-xl mb-2" th:text="'email сотрудника: '+ ${employee.user.username}"/>
+        <div class="font-bold text-xl mb-2" th:text="'кем работает: '+ ${employee.infa_employee.awards}"/>
     </div>
 </div>
 </body>

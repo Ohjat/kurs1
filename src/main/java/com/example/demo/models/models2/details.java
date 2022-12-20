@@ -1,6 +1,5 @@
 package com.example.demo.models.models2;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 

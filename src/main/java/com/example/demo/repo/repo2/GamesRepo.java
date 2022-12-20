@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface GamesRepo extends CrudRepository<games, Long > {
 
-    List<games> findByNumberContains(String name);
 
-    List<games> findByNumber(String name);
+    List<games> findByTrackNameContains(String name);
+
+    List<games> findByTrackName(String name);
 
 }

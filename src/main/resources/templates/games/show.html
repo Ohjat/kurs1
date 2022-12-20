@@ -11,9 +11,9 @@
 
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2" th:text="${games.number}"/>
-
-
+        <div class="font-bold text-xl mb-2" th:text="'Номер гонки: '+ ${games.number}"/>
+        <div class="font-bold text-xl mb-2" th:text="'Тип гонки: '+ ${games.id_type_of_race.name}"/>
+        <div class="font-bold text-xl mb-2" th:text="'Название трассы: '+ ${games.track.name}"/>
     </div>
 </div>
 </body>

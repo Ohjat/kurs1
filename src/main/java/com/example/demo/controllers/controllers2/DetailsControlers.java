@@ -3,8 +3,10 @@ package com.example.demo.controllers.controllers2;
 
 import com.example.demo.models.models2.Cars;
 import com.example.demo.models.models2.details;
+import com.example.demo.models.models2.warehouse;
 import com.example.demo.repo.repo2.CarsRepo;
 import com.example.demo.repo.repo2.DetailsRepo;
+import com.example.demo.repo.repo2.WarehouseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,6 +29,9 @@ public class DetailsControlers {
 
     @Autowired
     private CarsRepo carsRepo;
+
+     @Autowired
+    private WarehouseRepo warehouseRepo;
 
      @GetMapping("/")
     public String detailsMain(Model model) {
@@ -111,6 +117,27 @@ public class DetailsControlers {
         return "details/filter";
     }
 
+    @GetMapping("/grafik")
+    public String clientNumberChart(Model model) {
+        model.addAttribute("slads",
+                getTariffList(((List) warehouseRepo.findAll())));
+        model.addAttribute("details", getDetailsList((List) detailsRepo.findAll()));
+        return "details/grafik";
+    }
 
+    private static List<String> getDetailsList(List<details> details) {
+        List<String> tariffNames = new ArrayList<>();
+        for (var detail : details) {
+            tariffNames.add(detail.getName());
+        }
+        return tariffNames;
+    }
+    private static List<Double> getTariffList(List<warehouse> warehouse) {
+        List<Double> tariffNames = new ArrayList<>();
+        for (var warehouses : warehouse) {
+            tariffNames.add((double) warehouses.getDetails().getQuantity());
+        }
+        return tariffNames;
+    }
 
 }

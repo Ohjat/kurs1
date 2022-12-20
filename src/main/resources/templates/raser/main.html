@@ -10,17 +10,17 @@
 <div th:insert="header">...</div>
 
 <h1>Все гонщики</h1>
-<a class="underline text-blue-600" href="/raser/filter">Поиск гонщика</a>
+
 <a class="underline text-blue-600" href="/raser/add" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Добавить гонщика</a>
-<div th:each="rasers : ${raser}">
+<div th:each="raser : ${raser}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" th:text="${raser.cars}"/>
+            <div class="font-bold text-xl mb-2" th:text="'Название машины гонщика: '+${raser.id_cars.name}"/>
         </div>
         <div class="px-6 pt-4 pb-2">
-            <a class="underline text-blue-600"  th:href="'/rasers/edit/'+${rasers.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>
-            <a class="underline text-blue-600"  th:href="'/rasers/show/'+${rasers.id}">Посмореть</a>
-            <a class="underline text-blue-600"  th:href="'/rasers/del/'+${rasers.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Удалить</a>
+            <a class="underline text-blue-600"  th:href="'/raser/edit/'+${raser.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Редактировать</a>
+            <a class="underline text-blue-600"  th:href="'/raser/show/'+${raser.id}">Посмореть</a>
+            <a class="underline text-blue-600"  th:href="'/raser/del/'+${raser.id}" sec:authorize="hasAnyAuthority('WORKER','ADMIN')">Удалить</a>
         </div>
     </div>
 </div>
